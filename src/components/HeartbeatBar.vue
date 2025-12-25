@@ -1,39 +1,21 @@
 <template>
     <div ref="wrap" class="wrap" :style="wrapStyle">
         <div class="hp-bar-big" :style="barStyle">
-            <canvas
-                ref="canvas"
-                class="heartbeat-canvas"
-                :width="canvasWidth"
-                :height="canvasHeight"
-                :aria-label="canvasAriaLabel"
-                role="img"
-                tabindex="0"
-                @mousemove="handleMouseMove"
-                @mouseleave="hideTooltip"
-                @click="handleClick"
-                @keydown="handleKeydown"
-                @focus="handleFocus"
-                @blur="handleBlur"
-            />
+            <canvas ref="canvas" class="heartbeat-canvas" :width="canvasWidth" :height="canvasHeight"
+                :aria-label="canvasAriaLabel" role="img" tabindex="0" @mousemove="handleMouseMove"
+                @mouseleave="hideTooltip" @click="handleClick" @keydown="handleKeydown" @focus="handleFocus"
+                @blur="handleBlur" />
         </div>
-        <div
-            v-if="!$root.isMobile && size !== 'small' && beatList.length > 4 && $root.styleElapsedTime !== 'none'"
-            class="d-flex justify-content-between align-items-center word" :style="timeStyle"
-        >
+        <div v-if="!$root.isMobile && size !== 'small' && beatList.length > 4 && $root.styleElapsedTime !== 'none'"
+            class="d-flex justify-content-between align-items-center word" :style="timeStyle">
             <div>{{ timeSinceFirstBeat }}</div>
             <div v-if="$root.styleElapsedTime === 'with-line'" class="connecting-line"></div>
             <div>{{ timeSinceLastBeat }}</div>
         </div>
 
         <!-- Custom Tooltip -->
-        <Tooltip
-            :visible="tooltipVisible"
-            :content="tooltipContent"
-            :x="tooltipX"
-            :y="tooltipY"
-            :position="tooltipPosition"
-        />
+        <Tooltip :visible="tooltipVisible" :content="tooltipContent" :x="tooltipX" :y="tooltipY"
+            :position="tooltipPosition" />
     </div>
 </template>
 
@@ -256,9 +238,9 @@ export default {
             if (seconds < tolerance) {
                 return this.$t("now");
             } else if (seconds < 60 * 60) {
-                return this.$t("time ago", [ (seconds / 60).toFixed(0) + "m" ] );
+                return this.$t("time ago", [(seconds / 60).toFixed(0) + "m"]);
             } else {
-                return this.$t("time ago", [ (seconds / 60 / 60).toFixed(0) + "h" ] );
+                return this.$t("time ago", [(seconds / 60 / 60).toFixed(0) + "h"]);
             }
         },
 
@@ -564,7 +546,7 @@ export default {
                 down: rootStyles.getPropertyValue("--bs-danger") || "#dc3545",
                 pending: rootStyles.getPropertyValue("--bs-warning") || "#ffc107",
                 maintenance: rootStyles.getPropertyValue("--maintenance") || "#1d4ed8",
-                up: rootStyles.getPropertyValue("--bs-primary") || "#5cdd8b",
+                up: rootStyles.getPropertyValue("--bs-primary") || "#0d6efd",
             };
 
             // Draw each beat

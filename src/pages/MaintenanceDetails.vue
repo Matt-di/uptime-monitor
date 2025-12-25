@@ -9,7 +9,7 @@
             </p>
 
             <div class="functions" style="margin-top: 10px;">
-                <router-link :to=" '/maintenance/edit/' + maintenance.id " class="btn btn-secondary">
+                <router-link :to="'/maintenance/edit/' + maintenance.id" class="btn btn-secondary">
                     <font-awesome-icon icon="edit" /> {{ $t("Edit") }}
                 </router-link>
                 <button class="btn btn-danger" @click="deleteDialog">
@@ -20,20 +20,25 @@
             <label for="description" class="form-label" style="margin-top: 20px;">{{ $t("Description") }}</label>
             <textarea id="description" v-model="maintenance.description" class="form-control" disabled></textarea>
 
-            <label for="affected_monitors" class="form-label" style="margin-top: 20px;">{{ $t("Affected Monitors") }}</label>
+            <label for="affected_monitors" class="form-label" style="margin-top: 20px;">{{ $t("Affected Monitors")
+                }}</label>
             <br>
-            <button v-for="monitor in affectedMonitors" :key="monitor.id" class="btn btn-monitor" style="margin: 5px; cursor: auto; color: white; font-weight: 500;">
+            <button v-for="monitor in affectedMonitors" :key="monitor.id" class="btn btn-monitor"
+                style="margin: 5px; cursor: auto; color: white; font-weight: 500;">
                 {{ monitor }}
             </button>
             <br />
 
-            <label for="selected_status_pages" class="form-label" style="margin-top: 20px;">{{ $t("Show this Maintenance Message on which Status Pages") }}</label>
+            <label for="selected_status_pages" class="form-label" style="margin-top: 20px;">{{ $t("Show this Maintenance
+                Message on which Status Pages") }}</label>
             <br>
-            <button v-for="statusPage in selectedStatusPages" :key="statusPage.id" class="btn btn-monitor" style="margin: 5px; cursor: auto; color: white; font-weight: 500;">
+            <button v-for="statusPage in selectedStatusPages" :key="statusPage.id" class="btn btn-monitor"
+                style="margin: 5px; cursor: auto; color: white; font-weight: 500;">
                 {{ statusPage }}
             </button>
 
-            <Confirm ref="confirmDelete" btn-style="btn-danger" :yes-text="$t('Yes')" :no-text="$t('No')" @yes="deleteMaintenance">
+            <Confirm ref="confirmDelete" btn-style="btn-danger" :yes-text="$t('Yes')" :no-text="$t('No')"
+                @yes="deleteMaintenance">
                 {{ $t("deleteMaintenanceMsg") }}
             </Confirm>
         </div>
@@ -116,7 +121,8 @@ export default {
     .functions {
         text-align: center;
 
-        button, a {
+        button,
+        a {
             margin-left: 10px !important;
             margin-right: 10px !important;
         }
@@ -148,7 +154,9 @@ export default {
 }
 
 .functions {
-    button, a {
+
+    button,
+    a {
         margin-right: 20px;
     }
 }
@@ -159,11 +167,10 @@ textarea {
 }
 
 .btn-monitor {
-    background-color: #5cdd8b;
+    background-color: #0d6efd;
 }
 
 .dark .btn-monitor {
     color: #020b05 !important;
 }
-
 </style>

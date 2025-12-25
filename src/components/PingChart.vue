@@ -1,18 +1,14 @@
 <template>
     <div>
         <div class="period-options">
-            <button
-                type="button" class="btn btn-light dropdown-toggle btn-period-toggle" data-bs-toggle="dropdown"
-                aria-expanded="false"
-            >
+            <button type="button" class="btn btn-light dropdown-toggle btn-period-toggle" data-bs-toggle="dropdown"
+                aria-expanded="false">
                 {{ chartPeriodOptions[chartPeriodHrs] }}&nbsp;
             </button>
             <ul class="dropdown-menu dropdown-menu-end">
                 <li v-for="(item, key) in chartPeriodOptions" :key="key">
-                    <button
-                        type="button" class="dropdown-item" :class="{ active: chartPeriodHrs == key }"
-                        @click="chartPeriodHrs = key"
-                    >
+                    <button type="button" class="dropdown-item" :class="{ active: chartPeriodHrs == key }"
+                        @click="chartPeriodHrs = key">
                         {{ item }}
                     </button>
                 </li>
@@ -363,8 +359,8 @@ export default {
                         data: pingData,
                         fill: "origin",
                         tension: 0.2,
-                        borderColor: "#5CDD8B",
-                        backgroundColor: "#5CDD8B38",
+                        borderColor: "#0d6efd",
+                        backgroundColor: "#0d6efd38",
                         yAxisID: "y",
                         label: "ping",
                     },
@@ -492,8 +488,8 @@ export default {
                         data: avgPingData,
                         fill: "origin",
                         tension: 0.2,
-                        borderColor: "#5CDD8B",
-                        backgroundColor: "#5CDD8B06",
+                        borderColor: "#0d6efd",
+                        backgroundColor: "#0d6efd06",
                         yAxisID: "y",
                         label: "avg-ping",
                     },
@@ -503,7 +499,7 @@ export default {
                         fill: "origin",
                         tension: 0.2,
                         borderColor: "#3CBD6B38",
-                        backgroundColor: "#5CDD8B06",
+                        backgroundColor: "#0d6efd06",
                         yAxisID: "y",
                         label: "min-ping",
                     },
@@ -513,7 +509,7 @@ export default {
                         fill: "origin",
                         tension: 0.2,
                         borderColor: "#7CBD6B38",
-                        backgroundColor: "#5CDD8B06",
+                        backgroundColor: "#0d6efd06",
                         yAxisID: "y",
                         label: "max-ping",
                     },
